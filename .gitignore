@@ -5,6 +5,7 @@ tango_project/__pycache__/
 *.py[cod]
 *$py.class
 v/
+tango_project/db.sqlite3
 # C extensions
 *.so
 
