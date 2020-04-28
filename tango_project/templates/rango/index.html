@@ -1,20 +1,13 @@
-
-
-<!DOCTYPE html>
-{% load static %}
-<html>
-    <head><title>rango</title></head>
-    <body>
-        <h1>Hey there </h1>
-        <div>
-            <a href="/rango/">About</a><br />
-            <img src="{% static 'images/patience.jpg' %}"
-            alt="Picture of Rango" />
-             <!-- New line -->
-        </div>
-        <div>
-            <img src="{{ MEDIA_URL }}patience.jpg"
-            alt="myimage" />
-        </div>
-    </body>
-</html>
+{% extends "rango/base.html" %}
+    {% block content %}
+        <h1>Most Liked Categories.</h1>
+        {% if categories %}
+            <ul>
+                {% for cat in categories %}
+                    <li><a href="/rango/category/{{cat.slug}}">{{cat}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There is no category present.</strong>
+        {% endif %}
+    {% endblock %}
