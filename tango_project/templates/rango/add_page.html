@@ -1,0 +1,19 @@
+{% extends 'rango/base.html' %}
+
+
+    {% block content %}
+             {% if cat %}
+            <form method="POST" action="{% url 'add_page' cat.slug %}">
+                {% csrf_token %}
+
+
+                    {{ form }}
+                    <input type="submit" name="submit" class="btn btn-success p-2 m-3" value = "Create Page">
+            </form>
+
+                {% else %}
+                <p>Category with this name does not exist</p>
+                {% endif %}
+
+
+    {% endblock %}

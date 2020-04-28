@@ -3,20 +3,27 @@
         <div>
             {% if category %}
                 <h1>{{ category.name }}</h1>
+
                 <emp>Most Viewed pages.</emp>
                 {% if pages %}
                 <ul>
                     {% for page in pages %}
-                        <li><a href="{{page.url}}">{{page.title}}</a>   <emp class="text-monospace text-danger">views:{{page.views}}</emp>       </li>
+                        <li><a href="{{page.url}}" class="text-decoration-none btn-link">{{page.title}}</a>   <emp class="text-monospace text-danger">views:{{page.views}}</emp>       </li>
                     {% endfor %}
                 </ul>
+                <hr>
+
+
                 {% else %}
                 <strong>No pages currently in category</strong>
                 {% endif %}
+
+                <a href="{% url 'add_page'  category.slug %} " class="btn btn-primary">Add Page</a>
+
+
             {% else %}
                 <strong>The specified category does not exist </strong>
             {% endif %}
-            <a href="{% url 'index' %}">Home</a>
 
         </div>
     {% endblock %}

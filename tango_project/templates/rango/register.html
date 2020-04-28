@@ -1,0 +1,30 @@
+{% extends 'rango/base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+
+    <h1>About page</h1>
+    {% if registered %}
+        Rango says : <strong>Thank You for Registering with Us.</strong>
+        <a href="{% url 'index' %}" class="btn-link btn">Return to the HomePage</a><br>
+    {% else %}
+        Rango says : <strong>Register Here... </strong>
+
+        <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+            <!-- ENCTYPE_DATA usage: -This is because if the user
+tries to upload a picture, the response from the form may contain binary data - and may be quite
+large. The response therefore will have to be broken into multiple parts to be transmitted back to
+the server .This tells the
+HTTP client (the web browser) to package and send the data accordingly-->
+
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <input type="submit" name="submit" value="Register" class="btn btn-success">
+        </form>
+    {% endif %}
+{% endblock %}
+

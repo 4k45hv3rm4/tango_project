@@ -4,10 +4,13 @@
         {% if categories %}
             <ul>
                 {% for cat in categories %}
-                    <li><a href="/rango/category/{{cat.slug}}">{{cat}}</a></li>
+                    <li><a href="/rango/category/{{cat.slug}}" class="text-decoration-none">{{cat}}</a> <pre class="text-danger ">- views : {{cat.views}}</pre><pre class="text-danger">- likes : {{cat.likes}}</pre></li><hr>
                 {% endfor %}
             </ul>
+
         {% else %}
             <strong>There is no category present.</strong>
         {% endif %}
+        <a href="{% url 'add_category' %}" class="btn btn-success ">Add Category</a>
+
     {% endblock %}
