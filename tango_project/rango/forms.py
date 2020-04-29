@@ -4,9 +4,9 @@ from django.contrib. auth.models import User
 
 
 class CategoryForm(forms.ModelForm):
-    name  = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control  ', 'placeholder':'Type Category Name here... '}), max_length=128, )
-    views = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control ','placeholder':''}))
-    likes = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control '}))
+    name  = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control font-weight-bold ', 'placeholder':'Type Category Name here... '}), max_length=128, )
+    views = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control font-weight-bold','placeholder':''}))
+    likes = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control font-weight-bold'}))
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
 
@@ -16,9 +16,9 @@ class CategoryForm(forms.ModelForm):
 
 
 class PageForm(forms.ModelForm):
-    title = forms.CharField(max_length=128,widget=forms.TextInput(attrs={'placeholder':'Please enter the title of the page Here....','class':'form-control  '}))
-    url = forms.URLField(max_length=200, widget=forms.TextInput(attrs={'placeholder':'Please enter the URL of the page Here....','class':'form-control  '}))
-    views = forms.IntegerField(widget=forms.TextInput(attrs={'placeholder':'Please enter the views of the page Here....','class':'form-control  '}))
+    title = forms.CharField(max_length=128,widget=forms.TextInput(attrs={'placeholder':'Please enter the title of the page Here....','class':'form-control  font-weight-bold'}))
+    url = forms.URLField(max_length=200, widget=forms.TextInput(attrs={'placeholder':'Please enter the URL of the page Here....','class':'form-control  font-weight-bold'}))
+    views = forms.IntegerField(widget=forms.TextInput(attrs={'placeholder':'Please enter the views of the page Here....','class':'form-control  font-weight-bold'}))
 
     class Meta:
         model = Page
@@ -43,7 +43,7 @@ class UserForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in (self.fields['username'],self.fields['password'],self.fields['email']):
-            field.widget.attrs.update({'class': 'form-control'})
+            field.widget.attrs.update({'class': 'form-control font-weight-bold'})
     class Meta:
         model = User
         fields=('username','email','password')
@@ -54,7 +54,7 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['website'].widget.attrs.update({'class': 'form-control'})
+        self.fields['website'].widget.attrs.update({'class': 'form-control font-weight-bold'})
         self.fields['picture'].widget.attrs.update({'class': 'form-control-file'})
 
 

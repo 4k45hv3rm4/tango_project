@@ -8,20 +8,21 @@
     <body>
 
         <div class="container ">
-        <h1>Rango says... </h1><strong class="text-monospace p-4 m-4">Hey their partner</strong>
-        <ul class="nav ">
-            <li class="nav-item p-2 "><a class="text-white btn btn-primary btn-link text-decoration-none" href="{% url 'index' %}"> Home </a></li>
+        <div class="navbar shadow bg-dark col-lg-12">
+        <ul class="nav    ">
+            <li class="nav-item p-2 "><a class="text-info  btn-link text-decoration-none" href="{% url 'index' %}"> Home </a></li>
 
             {% if user.is_authenticated %}
 
-            <li class="nav-item p-2 "><a class="text-white btn btn-info btn-link text-decoration-none" href="{% url 'add_category' %}">Add Category</a></li>
-            <li class="nav-item p-2 "><a class="text-white btn btn-danger btn-link text-decoration-none" href="{% url 'logout' %}">Sign Out</a></li>
+            <li class="nav-item p-2 "><a class="text-white   btn-link text-decoration-none" href="{% url 'add_category' %}">Add Category</a></li>
+            <li class="nav-item p-2 "><a class="text-red   btn-link text-decoration-none" href="{% url 'logout' %}">Sign Out</a></li>
             {% else %}
 
-            <li class="nav-item p-2 "><a class="text-white btn btn-danger btn-link text-decoration-none" href="{% url 'register' %}">Sign Up</a></li>
-            <li class="nav-item p-2 "><a class="text-white btn btn-success btn-link text-decoration-none" href="{% url 'login' %}">Sign In</a></li>
+            <li class="nav-item p-2 "><a class="text-success   btn-link text-decoration-none" href="{% url 'register' %}">Sign Up</a></li>
+            <li class="nav-item p-2 "><a class="text-success   btn-link text-decoration-none" href="{% url 'login' %}">Sign In</a></li>
             {% endif %}
         </ul>
+        </div>
             <div class="jumbotron bg-light">
                 {% block content %}
                 {% endblock %}
