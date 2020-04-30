@@ -14,9 +14,9 @@
 
             {% if user.is_authenticated %}
 
-            <li class="nav-item p-2 "><a class="text-white   btn-link text-decoration-none" href="{% url 'add_category' %}">Add Category</a></li>
-            <li class="nav-item p-2 "><a class="text-red   btn-link text-decoration-none" href="{% url 'logout' %}">Sign Out</a></li>
-            {% else %}
+            <li class="nav-item p-2 "><a class="text-info   btn-link text-decoration-none" href="{% url 'add_category' %}">Add Category</a></li>
+            <li class="nav-item p-2 "><a class="text-danger   btn-link text-decoration-none" href="{% url 'logout' %}">Sign Out</a></li>
+=            {% else %}
 
             <li class="nav-item p-2 "><a class="text-success   btn-link text-decoration-none" href="{% url 'register' %}">Sign Up</a></li>
             <li class="nav-item p-2 "><a class="text-success   btn-link text-decoration-none" href="{% url 'login' %}">Sign In</a></li>
